@@ -13,11 +13,9 @@ import javax.net.ssl.SSLSocket;
 public class SSLServer implements Runnable{
 
 	/**
-	 * -Djavax.net.debug=all 
-	   -Djavax.net.ssl.keyStore="C:\Dokumente und Einstellungen\Entwicklung\SSLKeyStore" 
-       -Djavax.net.ssl.keyStorePassword=changeit
-       -Djavax.net.ssl.trustStore="C:\Dokumente und Einstellungen\Entwicklung\SSLKeyStore" 
-       -Djavax.net.ssl.trustStorePassword=changeit
+		-Djavax.net.debug=all 
+		-Djavax.net.ssl.keyStore="C:\Wks\Git\Security\src\main\config\mykeystore.p12" 
+		-Djavax.net.ssl.keyStorePassword=
 	 */
     public void run() {
         try {
