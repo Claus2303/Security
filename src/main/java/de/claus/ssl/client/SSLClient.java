@@ -7,26 +7,30 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-public class SSLClient implements Runnable{
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-    public void run() {
+public class SSLClient implements Runnable{
+	private static final Logger logger = LogManager.getLogger(SSLClient.class);
+    
+	public void run() {
         try {
 
             SSLSocket socket = (SSLSocket) SSLSocketFactory.getDefault()
                     .createSocket("localhost", 5678);
             PrintWriter printWriter = new PrintWriter(socket
                     .getOutputStream());
-            System.out.println("Client -> sending...");
+            logger.debug("Client -> sending...");
             for (int i = 0; i < 100; i++) {
                 String message = "Hallo: " + i;
-                System.out.println("Client sent: " + message);
+                logger.debug("Client sent: " + message);
                 printWriter.println(message);
                 printWriter.flush();
                 TimeUnit.SECONDS.sleep(1);
             }
             socket.close();
         } catch (Exception e) {
-            e.printStackTrace();
+        	logger.error(e);
         }
     }
     
