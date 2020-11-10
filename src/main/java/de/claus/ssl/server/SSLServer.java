@@ -13,8 +13,6 @@ import javax.net.ssl.SSLSocket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import de.claus.ssl.client.SSLClient;
-
 public class SSLServer implements Runnable{
 	private static final Logger logger = LogManager.getLogger(SSLServer.class);
     
